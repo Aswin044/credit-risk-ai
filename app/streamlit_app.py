@@ -1,10 +1,19 @@
+# -------------------- PATH FIX (IMPORTANT) --------------------
+import sys
+from pathlib import Path
+
+# Add project root to PYTHONPATH (robust for Streamlit & Windows)
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT_DIR))
+
+# -------------------- IMPORTS --------------------
 import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
 from src.evaluate import assign_risk_bucket
 
-# -------------------- CONFIG --------------------
+# -------------------- PAGE CONFIG --------------------
 st.set_page_config(
     page_title="AI Credit Risk Assessment",
     layout="centered"
